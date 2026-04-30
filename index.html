@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pevaris — AI Strategy & Commercial Technology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Barlow:wght@800;900&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #F5F3EF;
+  --bg-white: #FFFFFF;
+  --ink: #0C0C0A;
+  --ink-mid: #4A4845;
+  --ink-soft: #9A9793;
+  --rule: rgba(0,0,0,0.08);
+  --green-deep: #0E3D28;
+  --green-mid: #1A6644;
+  --green-bright: #27C97A;
+  --green-pale: #E8F5EE;
+  --ff-display: 'Instrument Sans', system-ui, sans-serif;
+  --ff-body: 'Instrument Sans', system-ui, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--ff-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── CURSOR GLOW ─────────────────────────────── */
+#cursor-glow {
+  position: fixed;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(39,201,122,0.07) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s ease-out;
+  will-change: transform;
+}
+
+/* ── NAV ─────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 2.5rem;
+  background: rgba(245,243,239,0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+nav.scrolled {
+  border-color: var(--rule);
+  box-shadow: 0 1px 20px rgba(0,0,0,0.04);
+}
+
+.nav-logo {
+  font-family: 'Barlow', var(--ff-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.82rem; font-weight: 500;
+  color: var(--ink-mid); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  background: var(--green-deep) !important;
+  color: #fff !important;
+  padding: 0.48rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600 !important;
+  font-size: 0.8rem !important;
+  transition: background 0.2s !important, transform 0.15s !important;
+}
+.nav-cta:hover { background: var(--green-mid) !important; transform: translateY(-1px) !important; }
+
+/* ── HERO ────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  padding: 7rem 2.5rem 4rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative; z-index: 1;
+}
+
+.hero-headline {
+  font-family: var(--ff-display);
+  font-size: clamp(3rem, 5.5vw, 6rem);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(28px);
+  animation: fadeUp 0.7s 0.1s ease forwards;
+}
+.gradient-text {
+  background: linear-gradient(130deg, var(--green-mid) 0%, var(--green-bright) 55%, #5BEDD4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: 1rem; font-weight: 400;
+  color: var(--ink-mid); line-height: 1.78;
+  max-width: 54ch; margin-bottom: 2.25rem;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 0.7s 0.25s ease forwards;
+}
+.hero-actions {
+  display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem;
+  opacity: 0; transform: translateY(16px);
+  animation: fadeUp 0.6s 0.4s ease forwards;
+}
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--green-deep); color: #fff;
+  font-family: var(--ff-body); font-size: 0.85rem; font-weight: 600;
+  padding: 0.85rem 1.75rem; border-radius: 8px; text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  position: relative; overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.08) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+.btn-primary:hover::after { transform: translateX(100%); }
+.btn-primary:hover { background: var(--green-mid); transform: translateY(-1px); }
+
+.btn-ghost {
+  font-size: 0.85rem; font-weight: 500; color: var(--ink-mid);
+  text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+  transition: color 0.2s, gap 0.2s;
+}
+.btn-ghost:hover { color: var(--ink); gap: 0.65rem; }
+
+.hero-proof {
+  display: flex; gap: 2.25rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+  opacity: 0; transform: translateY(12px);
+  animation: fadeUp 0.6s 0.55s ease forwards;
+}
+.proof-divider { width: 1px; background: var(--rule); }
+.proof-value {
+  font-family: var(--ff-display);
+  font-size: 1.45rem; font-weight: 700;
+  color: var(--ink); letter-spacing: -0.03em;
+  line-height: 1; margin-bottom: 0.22rem;
+}
+.proof-label { font-size: 0.72rem; font-weight: 500; color: var(--ink-soft); line-height: 1.3; }
+
+
+
+
+@keyframes breathe {
+  0%,100% { transform: translate(-50%,-50%) scale(1); opacity: 1; }
+  50% { transform: translate(-50%,-50%) scale(1.07); opacity: 0.6; }
+}
+
+
+/* floating particles */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+  animation: floatDrift linear infinite;
+}
+@keyframes floatDrift {
+  0% { transform: translateY(0) translateX(0); opacity: 0.6; }
+  33% { transform: translateY(-18px) translateX(10px); opacity: 1; }
+  66% { transform: translateY(-8px) translateX(-8px); opacity: 0.7; }
+  100% { transform: translateY(0) translateX(0); opacity: 0.6; }
+}
+
+.marquee-track { display: inline-flex; animation: marquee 32s linear infinite; }
+.marquee-item {
+  font-family: var(--ff-body); font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  padding: 0 2rem;
+  display: inline-flex; align-items: center; gap: 2rem;
+}
+.marquee-sep { color: var(--green-bright); font-size: 0.45rem; }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── SECTIONS ────────────────────────────────── */
+.section-wrap { max-width: 1280px; margin: 0 auto; padding: 5.5rem 2.5rem; position: relative; z-index: 1; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--green-mid); margin-bottom: 1.25rem;
+}
+.section-label::before { content: ''; display: block; width: 1.25rem; height: 1.5px; background: var(--green-mid); }
+.section-title {
+  font-family: var(--ff-display);
+  font-size: clamp(1.9rem, 3.2vw, 3.2rem);
+  font-weight: 700; line-height: 1.08;
+  letter-spacing: -0.022em; color: var(--ink);
+}
+
+/* ── SERVICES ────────────────────────────────── */
+.services-section { background: #fff; }
+.services-header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 3rem; gap: 2rem;
+}
+.services-intro { font-size: 0.9rem; color: var(--ink-mid); max-width: 34ch; line-height: 1.7; text-align: right; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--rule); border-radius: 12px; overflow: hidden; }
+.service-card {
+  background: #fff; padding: 2.25rem 2rem;
+  position: relative; overflow: hidden;
+  transition: background 0.25s;
+}
+.service-card-top-bar {
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--green-mid), var(--green-bright));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.service-card:hover .service-card-top-bar { transform: scaleX(1); }
+.service-card:hover { background: #FAFFFE; }
+.service-icon { width: 42px; height: 42px; background: var(--green-pale); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+.service-num { font-size: 0.67rem; font-weight: 700; letter-spacing: 0.12em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 0.6rem; }
+.service-name { font-family: var(--ff-display); font-size: 1.18rem; font-weight: 700; line-height: 1.2; color: var(--ink); margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+.service-desc { font-size: 0.84rem; color: var(--ink-mid); line-height: 1.72; margin-bottom: 1.5rem; }
+.service-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.service-tag { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-mid); background: var(--green-pale); padding: 0.25rem 0.6rem; border-radius: 4px; }
+
+/* ── AI SECTION ──────────────────────────────── */
+.ai-section { background: var(--green-deep); position: relative; overflow: hidden; }
+.ai-bg-grad {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 70% at 88% 50%, rgba(39,201,122,0.11) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 55% at 12% 75%, rgba(59,130,246,0.07) 0%, transparent 50%);
+}
+.ai-inner { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 5.5rem 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.ai-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; }
+.ai-label::before { content: ''; display: block; width: 1.25rem; height: 1.5px; background: var(--green-bright); }
+.ai-headline { font-family: var(--ff-display); font-size: clamp(2rem, 3.2vw, 3.2rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.028em; color: #fff; margin-bottom: 1.5rem; }
+.ai-headline em { font-style: normal; color: var(--green-bright); }
+.ai-body { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.78; }
+.ai-body p + p { margin-top: 1rem; }
+.ai-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.07); border-radius: 12px; overflow: hidden; }
+.ai-pillar { background: rgba(255,255,255,0.035); padding: 1.75rem 1.5rem; transition: background 0.2s; }
+.ai-pillar:hover { background: rgba(255,255,255,0.07); }
+.ai-pillar-icon { width: 34px; height: 34px; background: rgba(39,201,122,0.14); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.9rem; }
+.ai-pillar-title { font-size: 0.86rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem; letter-spacing: -0.01em; }
+.ai-pillar-desc { font-size: 0.77rem; color: rgba(255,255,255,0.48); line-height: 1.62; }
+
+/* ── WHO ─────────────────────────────────────── */
+.who-section { background: var(--bg); }
+.who-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+.who-card {
+  background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 2rem;
+  position: relative; overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.who-card:hover { border-color: rgba(26,102,68,0.22); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(14,61,40,0.08); }
+.who-card-glow { position: absolute; top: -60px; right: -60px; width: 180px; height: 180px; border-radius: 50%; opacity: 0; transition: opacity 0.4s; pointer-events: none; }
+.who-card:nth-child(1) .who-card-glow { background: radial-gradient(circle, rgba(39,201,122,0.13), transparent 70%); }
+.who-card:nth-child(2) .who-card-glow { background: radial-gradient(circle, rgba(59,130,246,0.1), transparent 70%); }
+.who-card:nth-child(3) .who-card-glow { background: radial-gradient(circle, rgba(176,125,80,0.1), transparent 70%); }
+.who-card:hover .who-card-glow { opacity: 1; }
+.who-eyebrow { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 0.85rem; }
+.who-title { font-family: var(--ff-display); font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.7rem; letter-spacing: -0.02em; line-height: 1.2; }
+.who-desc { font-size: 0.83rem; color: var(--ink-mid); line-height: 1.7; }
+
+/* ── APPROACH ────────────────────────────────── */
+.approach-section { background: #fff; }
+.steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 3rem; position: relative; }
+.steps::before { content: ''; position: absolute; top: 27px; left: calc(12.5% + 14px); right: calc(12.5% + 14px); height: 1px; background: linear-gradient(90deg, rgba(26,102,68,0.3), rgba(39,201,122,0.5), rgba(26,102,68,0.3)); }
+.step { padding: 0 1.5rem; text-align: center; position: relative; }
+.step-num { width: 54px; height: 54px; border-radius: 50%; background: linear-gradient(135deg, var(--green-deep), var(--green-mid)); color: #fff; font-family: var(--ff-display); font-size: 1rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; position: relative; z-index: 1; transition: transform 0.25s; box-shadow: 0 4px 16px rgba(14,61,40,0.25); }
+.step:hover .step-num { transform: scale(1.1); }
+.step-title { font-family: var(--ff-display); font-size: 0.95rem; font-weight: 700; color: var(--ink); margin-bottom: 0.55rem; letter-spacing: -0.01em; }
+.step-desc { font-size: 0.81rem; color: var(--ink-mid); line-height: 1.65; }
+
+/* ── CTA ─────────────────────────────────────── */
+.cta-section { position: relative; overflow: hidden; background: linear-gradient(135deg, #0A2B1A 0%, #0E3D28 45%, #0D3235 100%); padding: 5.5rem 2.5rem; }
+.cta-glow { position: absolute; top: -40%; right: -8%; width: 650px; height: 650px; border-radius: 50%; background: radial-gradient(circle, rgba(39,201,122,0.13) 0%, transparent 65%); pointer-events: none; animation: breathe 5s ease-in-out infinite; }
+.cta-glow-2 { position: absolute; bottom: -50%; left: -5%; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 65%); pointer-events: none; }
+.cta-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 3rem; position: relative; z-index: 1; }
+.cta-headline { font-family: var(--ff-display); font-size: clamp(1.9rem, 3.2vw, 3.2rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.028em; color: #fff; max-width: 22ch; }
+.cta-headline em { font-style: normal; color: var(--green-bright); }
+.btn-light { display: inline-flex; align-items: center; gap: 0.6rem; background: #fff; color: var(--green-deep); font-family: var(--ff-body); font-size: 0.85rem; font-weight: 700; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; white-space: nowrap; flex-shrink: 0; transition: background 0.2s, transform 0.15s; }
+.btn-light:hover { background: var(--green-pale); transform: translateY(-1px); }
+
+/* ── FOOTER ──────────────────────────────────── */
+footer { background: var(--ink); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; }
+.footer-logo { font-family: 'Barlow', var(--ff-display); font-size: 0.95rem; font-weight: 600; color: #fff; text-decoration: none; letter-spacing: 0.02em; }
+.footer-logo span { color: var(--green-bright); }
+.footer-links { display: flex; gap: 1.75rem; list-style: none; }
+.footer-links a { font-size: 0.77rem; font-weight: 500; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: rgba(255,255,255,0.88); }
+.footer-copy { font-size: 0.7rem; color: rgba(255,255,255,0.28); }
+
+/* ── SCROLL REVEAL ───────────────────────────── */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.22s; }
+.reveal-delay-3 { transition-delay: 0.34s; }
+
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0) scale(1); } }
+</style>
+</head>
+<body>
+
+<div id="cursor-glow"></div>
+
+<!-- HERO BG -->
+<div style="position:fixed; inset:0; pointer-events:none; z-index:0;">
+  <div style="position:absolute; top:-120px; right:-180px; width:700px; height:700px; border-radius:50%; background:radial-gradient(circle, rgba(39,201,122,0.07) 0%, transparent 65%);"></div>
+  <div style="position:absolute; bottom:-100px; left:-150px; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle, rgba(14,61,40,0.05) 0%, transparent 65%);"></div>
+</div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#" class="nav-logo">PEVARIS</a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="ai-strategy.html">AI Strategy</a></li>
+    <li><a href="approach.html">Approach</a></li>
+    <li><a href="blog.html">Blog</a></li><li><a href="#contact" class="nav-cta">Book a call</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section style="min-height:100vh; background:linear-gradient(155deg, #F5F3EF 55%, #EAF5EF 100%); position:relative; overflow:hidden;">
+
+  <!-- Floating particles -->
+  <div class="particle" style="width:6px;height:6px;background:rgba(39,201,122,0.5);top:18%;left:8%;animation-duration:7s;animation-delay:0s;"></div>
+  <div class="particle" style="width:4px;height:4px;background:rgba(39,201,122,0.35);top:65%;left:12%;animation-duration:9s;animation-delay:1.5s;"></div>
+  <div class="particle" style="width:5px;height:5px;background:rgba(26,102,68,0.3);top:30%;left:92%;animation-duration:8s;animation-delay:0.8s;"></div>
+  <div class="particle" style="width:3px;height:3px;background:rgba(39,201,122,0.6);top:75%;left:88%;animation-duration:6s;animation-delay:2s;"></div>
+  <div class="particle" style="width:7px;height:7px;background:rgba(14,61,40,0.12);top:50%;left:50%;animation-duration:11s;animation-delay:3s;"></div>
+  <div class="particle" style="width:4px;height:4px;background:rgba(39,201,122,0.4);top:85%;left:35%;animation-duration:8s;animation-delay:1s;"></div>
+  <div class="particle" style="width:5px;height:5px;background:rgba(39,201,122,0.3);top:20%;left:55%;animation-duration:10s;animation-delay:4s;"></div>
+
+  <div style="max-width:1280px; margin:0 auto; padding:7.5rem 2.5rem 4rem; display:flex; flex-direction:column; justify-content:center; min-height:100vh; position:relative; z-index:1; max-width:860px;">
+
+    <div>
+      <h1 class="hero-headline">
+        Technology that<br>
+        <span class="gradient-text">drives revenue.</span><br>
+        Not just reports.
+      </h1>
+      <p class="hero-sub">
+        Senior fractional CTO and AI strategy for businesses that want outcomes — not overhead. Combining deep technology expertise with commercial reality, from startups to Fortune 500.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Book a discovery call →</a>
+        <a href="#services" class="btn-ghost">See how it works ↓</a>
+      </div>
+      <div class="hero-proof">
+        <div>
+          <div class="proof-value">Fortune 500</div>
+          <div class="proof-label">to seed-stage startups</div>
+        </div>
+        <div class="proof-divider"></div>
+        <div>
+          <div class="proof-value">AI + Compliance</div>
+          <div class="proof-label">built in, not bolted on</div>
+        </div>
+        <div class="proof-divider"></div>
+        <div>
+          <div class="proof-value">Outcomes</div>
+          <div class="proof-label">not day rates</div>
+        </div>
+      </div>
+    </div>
+
+
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="section-wrap">
+    <div class="services-header reveal">
+      <div>
+        <span class="section-label">What I do</span>
+        <h2 class="section-title" style="margin-top:0.5rem;">Technology leadership<br>that moves the needle.</h2>
+      </div>
+      <p class="services-intro">Three practice areas. One question: what is technology actually doing for the business?</p>
+    </div>
+    <div class="services-grid reveal reveal-delay-1">
+      <div class="service-card">
+        <div class="service-card-top-bar"></div>
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="2" width="8" height="8" rx="2" fill="#1A6644" opacity="0.8"/><rect x="12" y="2" width="8" height="8" rx="2" fill="#1A6644" opacity="0.4"/><rect x="2" y="12" width="8" height="8" rx="2" fill="#1A6644" opacity="0.4"/><rect x="12" y="12" width="8" height="8" rx="2" fill="#27C97A" opacity="0.8"/></svg></div>
+        <div class="service-num">01</div>
+        <div class="service-name">Fractional CTO</div>
+        <p class="service-desc">Embedded senior technology leadership without the permanent headcount. Strategy, delivery, vendor accountability — and board-level reporting that actually makes sense.</p>
+        <div class="service-tags"><span class="service-tag">Strategy</span><span class="service-tag">Team Leadership</span><span class="service-tag">Vendors</span><span class="service-tag">Board</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-top-bar"></div>
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="4" fill="#27C97A"/><circle cx="4" cy="4" r="2.5" fill="#1A6644" opacity="0.5"/><circle cx="18" cy="4" r="2.5" fill="#1A6644" opacity="0.5"/><circle cx="4" cy="18" r="2.5" fill="#1A6644" opacity="0.5"/><circle cx="18" cy="18" r="2.5" fill="#1A6644" opacity="0.5"/><line x1="11" y1="7" x2="6.5" y2="5.5" stroke="#1A6644" stroke-width="1" opacity="0.4"/><line x1="11" y1="7" x2="15.5" y2="5.5" stroke="#1A6644" stroke-width="1" opacity="0.4"/><line x1="11" y1="15" x2="6.5" y2="16.5" stroke="#1A6644" stroke-width="1" opacity="0.4"/><line x1="11" y1="15" x2="15.5" y2="16.5" stroke="#1A6644" stroke-width="1" opacity="0.4"/></svg></div>
+        <div class="service-num">02</div>
+        <div class="service-name">AI Strategy & Implementation</div>
+        <p class="service-desc">From readiness assessment to production. Governance and compliance built in from day one. Measurable business outcomes — not proof-of-concept theatre.</p>
+        <div class="service-tags"><span class="service-tag">AI Readiness</span><span class="service-tag">Governance</span><span class="service-tag">Implementation</span><span class="service-tag">ROI</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-top-bar"></div>
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 16 L7 10 L11 13 L15 6 L19 9" stroke="#27C97A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="9" r="2" fill="#1A6644"/><line x1="3" y1="19" x2="19" y2="19" stroke="#1A6644" stroke-width="1" opacity="0.3"/><line x1="3" y1="3" x2="3" y2="19" stroke="#1A6644" stroke-width="1" opacity="0.3"/></svg></div>
+        <div class="service-num">03</div>
+        <div class="service-name">Commercial Technology</div>
+        <p class="service-desc">Technology decisions reframed around revenue. Platform architecture, build vs buy, vendor rationalisation — presented in the language of the boardroom.</p>
+        <div class="service-tags"><span class="service-tag">Revenue Arch.</span><span class="service-tag">Platforms</span><span class="service-tag">Build vs Buy</span><span class="service-tag">Due Diligence</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI -->
+<section class="ai-section" id="ai">
+  <div class="ai-bg-grad"></div>
+  <div class="ai-inner">
+    <div class="reveal">
+      <div class="ai-label">AI Strategy</div>
+      <h2 class="ai-headline">AI that <em>actually</em> works for your business.</h2>
+      <div class="ai-body">
+        <p>Most AI projects stall at proof-of-concept because strategy was disconnected from commercial reality. I bridge that gap — starting with the business problem, not the technology.</p>
+        <p>Compliance and governance aren't afterthoughts. They're built into every engagement from day one, so what we build can scale — and withstand scrutiny.</p>
+      </div>
+      <a href="#contact" class="btn-primary" style="margin-top:2rem; display:inline-flex;">Talk about your AI programme →</a>
+    </div>
+    <div class="ai-pillars reveal reveal-delay-1">
+      <div class="ai-pillar"><div class="ai-pillar-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="1" width="7" height="7" rx="1.5" fill="#27C97A" opacity="0.8"/><rect x="10" y="1" width="7" height="7" rx="1.5" fill="#27C97A" opacity="0.4"/><rect x="1" y="10" width="7" height="7" rx="1.5" fill="#27C97A" opacity="0.4"/><rect x="10" y="10" width="7" height="7" rx="1.5" fill="#27C97A" opacity="0.8"/></svg></div><div class="ai-pillar-title">Strategy First</div><p class="ai-pillar-desc">Commercial case defined before any technology decision is made.</p></div>
+      <div class="ai-pillar"><div class="ai-pillar-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2 L16 6 L16 12 L9 16 L2 12 L2 6 Z" stroke="#27C97A" stroke-width="1.5" fill="none"/><circle cx="9" cy="9" r="2.5" fill="#27C97A" opacity="0.7"/></svg></div><div class="ai-pillar-title">Governance Built In</div><p class="ai-pillar-desc">Compliance and risk frameworks from day one, not retrofitted later.</p></div>
+      <div class="ai-pillar"><div class="ai-pillar-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#27C97A" stroke-width="1.5"/><path d="M6 9 L8 11 L12 7" stroke="#27C97A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ai-pillar-title">Implementation Ready</div><p class="ai-pillar-desc">Strategy with delivery capability — from roadmap to production.</p></div>
+      <div class="ai-pillar"><div class="ai-pillar-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 13 L5 8 L8 10 L11 5 L14 7 L16 4" stroke="#27C97A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="4" r="1.5" fill="#27C97A"/></svg></div><div class="ai-pillar-title">Measurable Outcomes</div><p class="ai-pillar-desc">KPIs tied to revenue impact — not activity metrics.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="who-section">
+  <div class="section-wrap">
+    <span class="section-label reveal">Who I work with</span>
+    <h2 class="section-title reveal" style="margin-top:0.5rem;">Built for organisations<br>that want to move.</h2>
+    <div class="who-grid">
+      <div class="who-card reveal reveal-delay-1"><div class="who-card-glow"></div><div class="who-eyebrow">Private Equity</div><div class="who-title">PE-backed businesses</div><p class="who-desc">Technology due diligence, post-acquisition integration roadmaps, and value creation programmes for portfolio companies — with board-level clarity and commercial precision.</p></div>
+      <div class="who-card reveal reveal-delay-2"><div class="who-card-glow"></div><div class="who-eyebrow">Enterprise</div><div class="who-title">Large organisations</div><p class="who-desc">AI transformation and technology strategy for enterprises that need senior CTO-level thinking without the permanent overhead or a fresh perspective outside internal hierarchy.</p></div>
+      <div class="who-card reveal reveal-delay-3"><div class="who-card-glow"></div><div class="who-eyebrow">Growth Stage</div><div class="who-title">Scaling companies</div><p class="who-desc">Fractional CTO support for growth-stage businesses moving faster than a full-time hire allows — with credibility to operate at both board and engineering team level.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach-section" id="approach">
+  <div class="section-wrap">
+    <span class="section-label reveal">How it works</span>
+    <h2 class="section-title reveal" style="margin-top:0.5rem;">From first conversation<br>to measurable outcomes.</h2>
+    <div class="steps">
+      <div class="step reveal reveal-delay-1"><div class="step-num">01</div><div class="step-title">Discovery</div><p class="step-desc">A focused, no-obligation session mapping your technology landscape, commercial priorities, and where the two fail to connect.</p></div>
+      <div class="step reveal reveal-delay-2"><div class="step-num">02</div><div class="step-title">Clarity</div><p class="step-desc">A clear, unambiguous view of what needs to change, what it costs, and what it's worth — in language that lands at board level.</p></div>
+      <div class="step reveal reveal-delay-3"><div class="step-num">03</div><div class="step-title">Delivery</div><p class="step-desc">Embedded leadership through execution — running the programme, managing vendors, or coaching your team to own it.</p></div>
+      <div class="step reveal" style="transition-delay:0.46s;"><div class="step-num">04</div><div class="step-title">Outcomes</div><p class="step-desc">Success defined upfront by commercial results — not timesheet hours. Measured from day one, reported throughout.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-glow"></div>
+  <div class="cta-glow-2"></div>
+  <div class="cta-inner">
+    <h2 class="cta-headline reveal">Ready to see what technology could <em>actually do</em> for your business?</h2>
+    <a href="mailto:hello@pevaris.com" class="btn-light reveal reveal-delay-1">Book a discovery call →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">PEVARIS</a>
+  <ul class="footer-links">
+    <li><a href="#">Services</a></li><li><a href="#">AI Strategy</a></li><li><a href="#">Approach</a></li><li><a href="#">Contact</a></li>
+  </ul>
+  <span class="footer-copy">&copy; 2025 Pevaris. All rights reserved.</span>
+</footer>
+
+<script>
+// ── CURSOR GLOW ─────────────────────────────────
+const glow = document.getElementById('cursor-glow');
+let mx = window.innerWidth/2, my = window.innerHeight/2;
+let cx = mx, cy = my;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+function animateGlow() {
+  cx += (mx - cx) * 0.1;
+  cy += (my - cy) * 0.1;
+  glow.style.left = cx + 'px';
+  glow.style.top = cy + 'px';
+  requestAnimationFrame(animateGlow);
+}
+animateGlow();
+
+
+
+// ── MOUSE PARALLAX ON PARTICLES ──────────────────
+const particles = document.querySelectorAll('.particle');
+document.addEventListener('mousemove', e => {
+  const px = e.clientX / window.innerWidth;
+  const py = e.clientY / window.innerHeight;
+  particles.forEach((p, i) => {
+    const depth = 0.3 + (i % 4) * 0.2;
+    const ox = (px - 0.5) * depth * 30;
+    const oy = (py - 0.5) * depth * 20;
+    p.style.transform = `translate(${ox}px, ${oy}px)`;
+  });
+});
+
+// ── NAV SCROLL BEHAVIOUR ─────────────────────────
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY > 60;
+  nav.classList.toggle('scrolled', scrolled);
+}, { passive: true });
+
+// ── SCROLL REVEAL ────────────────────────────────
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
