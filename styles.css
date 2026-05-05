@@ -516,10 +516,20 @@ footer {
 }
 
 @media (max-width: 768px) {
-  /* Force single column on all inline grids */
-  [style*="grid-template-columns"] {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
+  /* Force single column on all grids */
+  [style*="grid-template-columns"],
+  [style*="grid-template-columns:"] {
+    display: block !important;
+  }
+
+  [style*="grid-template-columns"] > *,
+  [style*="grid-template-columns:"] > * {
+    margin-bottom: 1.5rem !important;
+  }
+
+  [style*="grid-template-columns"] > *:last-child,
+  [style*="grid-template-columns:"] > *:last-child {
+    margin-bottom: 0 !important;
   }
 
   /* Navigation — hamburger */
