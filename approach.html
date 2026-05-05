@@ -4,87 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Approach — Pevaris</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Barlow:wght@400;600;700&display=swap');
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --bg: #F5F3EF;
-  --bg-white: #FFFFFF;
-  --ink: #0C0C0A;
-  --ink-mid: #4A4845;
-  --ink-soft: #9A9793;
-  --rule: rgba(0,0,0,0.08);
-  --green-deep: #0E3D28;
-  --green-mid: #1A6644;
-  --green-bright: #27C97A;
-  --green-pale: #E8F5EE;
-  --ff-display: 'Instrument Sans', system-ui, sans-serif;
-  --ff-body: 'Instrument Sans', system-ui, sans-serif;
-  --ff-logo: 'Barlow', system-ui, sans-serif;
-}
-html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--ink); font-family: var(--ff-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-
-#cursor-glow { position: fixed; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(39,201,122,0.06) 0%, transparent 65%); pointer-events: none; z-index: 0; transform: translate(-50%, -50%); will-change: transform; }
-
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 300; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 2.5rem; background: rgba(245,243,239,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid transparent; transition: border-color 0.3s, box-shadow 0.3s; }
-nav.scrolled { border-color: var(--rule); box-shadow: 0 1px 20px rgba(0,0,0,0.04); }
-.nav-logo { font-family: var(--ff-logo); font-weight: 600; font-size: 1.15rem; color: var(--ink); text-decoration: none; letter-spacing: 0.02em; }
-.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
-.nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--ink-mid); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink); }
-.nav-links a.active { color: var(--ink); }
-.nav-cta { background: var(--green-deep) !important; color: #fff !important; padding: 0.48rem 1.2rem; border-radius: 6px; font-weight: 600 !important; font-size: 0.8rem !important; transition: background 0.2s !important; }
-.nav-cta:hover { background: var(--green-mid) !important; }
-
-.section-wrap { max-width: 1280px; margin: 0 auto; padding: 5.5rem 2.5rem; position: relative; z-index: 1; }
-.section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 1.25rem; }
-.section-label::before { content: ''; display: block; width: 1.25rem; height: 1.5px; background: var(--green-mid); }
-.section-title { font-family: var(--ff-display); font-size: clamp(1.9rem, 3.2vw, 3.2rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.022em; color: var(--ink); }
-.gradient-text { background: linear-gradient(130deg, var(--green-mid) 0%, var(--green-bright) 55%, #5BEDD4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-
-.btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--green-deep); color: #fff; font-family: var(--ff-body); font-size: 0.85rem; font-weight: 600; padding: 0.85rem 1.75rem; border-radius: 8px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
-.btn-primary:hover { background: var(--green-mid); transform: translateY(-1px); }
-.btn-outline { display: inline-flex; align-items: center; gap: 0.5rem; border: 1.5px solid var(--green-mid); color: var(--green-mid); font-family: var(--ff-body); font-size: 0.85rem; font-weight: 600; padding: 0.82rem 1.75rem; border-radius: 8px; text-decoration: none; transition: background 0.2s, color 0.2s; background: transparent; }
-.btn-outline:hover { background: var(--green-pale); }
-
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.22s; }
-.reveal-delay-3 { transition-delay: 0.34s; }
-
-.page-hero { padding: 9rem 2.5rem 5rem; max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
-.page-hero-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; }
-.page-hero-label::before { content: ''; display: block; width: 1.25rem; height: 1.5px; background: var(--green-mid); }
-.page-hero h1 { font-family: var(--ff-display); font-size: clamp(2.8rem, 5vw, 5.5rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.028em; color: var(--ink); margin-bottom: 1.5rem; max-width: 16ch; }
-.page-hero p { font-size: 1.05rem; color: var(--ink-mid); line-height: 1.75; max-width: 52ch; }
-
-.cta-section { position: relative; overflow: hidden; background: linear-gradient(135deg, #0A2B1A 0%, #0E3D28 45%, #0D3235 100%); padding: 5.5rem 2.5rem; }
-.cta-glow { position: absolute; top: -40%; right: -8%; width: 650px; height: 650px; border-radius: 50%; background: radial-gradient(circle, rgba(39,201,122,0.13) 0%, transparent 65%); pointer-events: none; animation: breathe 5s ease-in-out infinite; }
-.cta-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 3rem; position: relative; z-index: 1; }
-.cta-headline { font-family: var(--ff-display); font-size: clamp(1.9rem, 3.2vw, 3.2rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.022em; color: #fff; max-width: 22ch; }
-.cta-headline em { font-style: normal; color: var(--green-bright); }
-.btn-light { display: inline-flex; align-items: center; gap: 0.6rem; background: #fff; color: var(--green-deep); font-family: var(--ff-body); font-size: 0.85rem; font-weight: 700; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; white-space: nowrap; flex-shrink: 0; transition: background 0.2s, transform 0.15s; }
-.btn-light:hover { background: var(--green-pale); transform: translateY(-1px); }
-
-footer { background: var(--ink); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; }
-.footer-logo { font-family: var(--ff-logo); font-size: 0.95rem; font-weight: 600; color: #fff; text-decoration: none; letter-spacing: 0.02em; }
-.footer-links { display: flex; gap: 1.75rem; list-style: none; }
-.footer-links a { font-size: 0.77rem; font-weight: 500; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-.footer-links a:hover { color: rgba(255,255,255,0.88); }
-.footer-copy { font-size: 0.7rem; color: rgba(255,255,255,0.28); }
-
-@keyframes breathe { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.07); opacity: 0.6; } }
-@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-@keyframes floatDrift{0%,100%{transform:translateY(0);opacity:.6}50%{transform:translateY(-16px);opacity:1}} .particle{position:absolute;border-radius:50%;pointer-events:none;}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div id="cursor-glow"></div>
 <nav id="main-nav">
   <a href="index.html" class="nav-logo">PEVARIS</a>
-  <ul class="nav-links">
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
     <li><a href="services.html">Services</a></li>
     <li><a href="ai-strategy.html">AI Strategy</a></li>
     <li><a href="approach.html" class="active">Approach</a></li>
@@ -243,21 +177,7 @@ footer { background: var(--ink); padding: 2rem 2.5rem; display: flex; align-item
   <span class="footer-copy">&copy; 2025 Pevaris. All rights reserved.</span>
 </footer>
 
-<script>
-const glow = document.getElementById('cursor-glow');
-if (glow) {
-  let mx = window.innerWidth/2, my = window.innerHeight/2, cx = mx, cy = my;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-  (function animateGlow() { cx += (mx-cx)*0.1; cy += (my-cy)*0.1; glow.style.left = cx+'px'; glow.style.top = cy+'px'; requestAnimationFrame(animateGlow); })();
-}
-const nav = document.getElementById('main-nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), {passive:true});
-const revealEls = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);} }), {threshold:0.1, rootMargin:'0px 0px -40px 0px'});
-revealEls.forEach(el => observer.observe(el));
-const particles = document.querySelectorAll('.particle');
-document.addEventListener('mousemove', e => { const px=e.clientX/window.innerWidth, py=e.clientY/window.innerHeight; particles.forEach((p,i)=>{ const d=0.3+(i%4)*0.2; p.style.transform=`translate(${(px-0.5)*d*28}px,${(py-0.5)*d*18}px)`; }); });
-</script>
+<script src="main.js"></script>
 
 </body>
 </html>
