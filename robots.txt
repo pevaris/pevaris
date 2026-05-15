@@ -1,0 +1,11 @@
+# Pevaris robots.txt
+# https://www.pevaris.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.pevaris.com/sitemap.xml
+
+# Crawl-delay (optional, be polite to servers)
+Crawl-delay: 1
