@@ -1,0 +1,29 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#14281D"/>
+
+  <!-- Concentric circles - positioned left of center -->
+  <g transform="translate(340, 280)">
+    <!-- Outermost to innermost -->
+    <circle cx="0" cy="0" r="200" fill="#E8F0EF" opacity="0.15"/>
+    <circle cx="0" cy="0" r="170" fill="#C5D9D4" opacity="0.2"/>
+    <circle cx="0" cy="0" r="140" fill="#8EBAB0" opacity="0.3"/>
+    <circle cx="0" cy="0" r="110" fill="#5A9E91" opacity="0.5"/>
+    <circle cx="0" cy="0" r="80" fill="#3D7F72" opacity="0.7"/>
+    <circle cx="0" cy="0" r="55" fill="#2A5C52"/>
+    <circle cx="0" cy="0" r="35" fill="#1A3D35"/>
+  </g>
+
+  <!-- Text content - right side -->
+  <g transform="translate(580, 260)">
+    <!-- PEVARIS wordmark -->
+    <text x="0" y="0" font-family="Inter, system-ui, sans-serif" font-size="72" font-weight="600" letter-spacing="12" fill="#ffffff">PEVARIS</text>
+
+    <!-- Accent line -->
+    <rect x="0" y="30" width="120" height="3" fill="#00C48C"/>
+
+    <!-- Tagline -->
+    <text x="0" y="80" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="400" fill="#A0AEC0">Fractional CTO &amp; AI Leadership</text>
+    <text x="0" y="120" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="400" fill="#A0AEC0">for UK Businesses</text>
+  </g>
+</svg>
