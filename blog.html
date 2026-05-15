@@ -1,180 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — Pevaris</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Joe Darkins, Pevaris">
+  <title>Blog  - Pevaris</title>
+  <meta name="description" content="Technology, AI and leadership insights from Joe Darkins and the Pevaris team.">
+  <link rel="canonical" href="https://www.pevaris.com/blog.html">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Pevaris">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog  - Pevaris">
+  <meta property="og:description" content="Technology, AI and leadership insights from Joe Darkins and the Pevaris team.">
+  <meta property="og:url" content="https://www.pevaris.com/blog.html">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="images/pevaris-favicon.svg">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div id="cursor-glow"></div>
-<nav id="main-nav">
-  <a href="index.html" class="nav-logo">PEVARIS</a>
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="ai-strategy.html">AI Strategy</a></li>
-    <li><a href="approach.html">Approach</a></li>
-    <li><a href="blog.html" class="active">Blog</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Book a call</a></li>
-  </ul>
-</nav>
+  <!-- Navigation -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo"><img src="images/pevaris-logo.svg" alt="Pevaris" class="nav__logo-img"></a>
 
-<div style="background:linear-gradient(160deg,#F5F3EF 60%,#EAF5EF 100%); position:relative; overflow:hidden;">
-  <div class="particle" style="width:5px;height:5px;background:rgba(39,201,122,0.4);top:30%;left:9%;animation:floatDrift 8s ease-in-out infinite;"></div>
-  <div class="page-hero">
-    <div class="page-hero-label">Thinking</div>
-    <h1>Perspectives on technology, <span class="gradient-text">AI & commercial outcomes.</span></h1>
-    <p>Practical thinking on AI strategy, fractional leadership, and the decisions that define how technology creates commercial value. No fluff — just the things worth saying.</p>
-  </div>
-</div>
-
-<!-- FEATURED POST -->
-<section style="background:#fff; border-bottom:1px solid var(--rule);">
-  <div class="section-wrap" style="padding-bottom:3rem;">
-    <div class="section-label reveal">Featured</div>
-    <a href="#" style="text-decoration:none;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:1rem;" class="reveal" onmouseover="this.querySelector('.post-title').style.color='var(--green-mid)'" onmouseout="this.querySelector('.post-title').style.color='var(--ink)'">
-      <div style="background:linear-gradient(135deg,#0E3D28,#1A6644);border-radius:14px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:-30%;right:-20%;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(39,201,122,0.25),transparent 70%);"></div>
-        <div style="text-align:center;position:relative;z-index:1;">
-          <div style="font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.12);font-family:var(--ff-display);letter-spacing:-0.03em;">AI</div>
-          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:rgba(39,201,122,0.8);margin-top:0.5rem;">STRATEGY</div>
+      <div class="nav__links">
+        <a href="about.html" class="nav__link">About</a>
+        <div class="nav__item--services">
+          <a href="services.html" class="nav__link nav__link--services">Services</a>
+          <div class="nav__dropdown">
+            <a href="fractional-leadership.html" class="nav__dropdown-item">
+              <div class="nav__dropdown-title">Fractional Leadership</div>
+              <div class="nav__dropdown-desc">Senior CTO, CPO or CAIO</div>
+            </a>
+            <a href="ai-strategy.html" class="nav__dropdown-item">
+              <div class="nav__dropdown-title">AI Strategy & Delivery</div>
+              <div class="nav__dropdown-desc">From readiness to production</div>
+            </a>
+            <a href="technology-delivery.html" class="nav__dropdown-item">
+              <div class="nav__dropdown-title">Technology Delivery</div>
+              <div class="nav__dropdown-desc">The last 20%, done properly</div>
+            </a>
+            <div class="nav__dropdown-divider"></div>
+            <a href="executive-ai-training.html" class="nav__dropdown-item">
+              <div class="nav__dropdown-title">Executive AI Training</div>
+              <div class="nav__dropdown-desc">Workshops for boards and leadership</div>
+            </a>
+          </div>
         </div>
+        <a href="approach.html" class="nav__link">Approach</a>
+        <a href="blog.html" class="nav__link">Blog</a>
       </div>
-      <div style="padding-top:0.5rem;">
-        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
-          <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green-mid);background:var(--green-pale);padding:0.28rem 0.65rem;border-radius:4px;">AI Strategy</span>
-          <span style="font-size:0.75rem;color:var(--ink-soft);">12 June 2025 · 8 min read</span>
-        </div>
-        <h2 class="post-title" style="font-family:var(--ff-display);font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:700;color:var(--ink);line-height:1.15;letter-spacing:-0.025em;margin-bottom:1rem;transition:color 0.2s;">Why your AI strategy is failing at the proof-of-concept stage</h2>
-        <p style="font-size:0.9rem;color:var(--ink-mid);line-height:1.75;margin-bottom:1.5rem;">Most AI programmes are stuck in a loop of impressive demos that never reach production. The problem isn't the technology — it's that strategy was built around the model, not the business problem.</p>
-        <span style="font-size:0.82rem;font-weight:600;color:var(--green-mid);display:flex;align-items:center;gap:0.4rem;">Read article →</span>
-      </div>
-    </a>
-  </div>
-</section>
 
-<!-- ALL POSTS -->
-<section style="background:var(--bg);">
-  <div class="section-wrap">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2.5rem;" class="reveal">
-      <h2 class="section-title">All posts</h2>
-      <div style="display:flex;gap:0.5rem;">
-        <button onclick="filterPosts('all')" id="filter-all" style="font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:6px;border:1.5px solid var(--green-mid);background:var(--green-deep);color:#fff;cursor:pointer;">All</button>
-        <button onclick="filterPosts('ai')" id="filter-ai" style="font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:6px;border:1.5px solid var(--rule);background:transparent;color:var(--ink-mid);cursor:pointer;">AI Strategy</button>
-        <button onclick="filterPosts('leadership')" id="filter-leadership" style="font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:6px;border:1.5px solid var(--rule);background:transparent;color:var(--ink-mid);cursor:pointer;">Leadership</button>
-        <button onclick="filterPosts('commercial')" id="filter-commercial" style="font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:6px;border:1.5px solid var(--rule);background:transparent;color:var(--ink-mid);cursor:pointer;">Commercial Tech</button>
-      </div>
+      <a href="mailto:hello@pevaris.com" class="btn-primary nav__cta">Book a call →</a>
+
+      <button class="nav__toggle" aria-label="Toggle menu">
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
+      </button>
     </div>
+  </nav>
 
-    <div id="posts-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;">
-
-      <a href="#" class="post-card" data-cat="ai" style="text-decoration:none;background:#fff;border:1px solid var(--rule);border-radius:12px;overflow:hidden;display:block;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(14,61,40,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <div style="background:linear-gradient(135deg,#1A6644,#27C97A);height:140px;position:relative;overflow:hidden;"><div style="position:absolute;bottom:-20px;right:-20px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.08);"></div></div>
-        <div style="padding:1.5rem;">
-          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;"><span style="font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green-mid);background:var(--green-pale);padding:0.25rem 0.6rem;border-radius:4px;">AI Strategy</span><span style="font-size:0.72rem;color:var(--ink-soft);">8 min read</span></div>
-          <h3 style="font-size:1rem;font-weight:700;color:var(--ink);line-height:1.3;letter-spacing:-0.015em;margin-bottom:0.6rem;">The governance gap: why compliance needs to come first in AI deployment</h3>
-          <p style="font-size:0.8rem;color:var(--ink-mid);line-height:1.65;">Retrofitting governance onto a deployed AI system is expensive, slow, and sometimes impossible. Here's how to build it in from the start.</p>
-          <div style="font-size:0.72rem;color:var(--ink-soft);margin-top:1rem;">28 May 2025</div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card" data-cat="leadership" style="text-decoration:none;background:#fff;border:1px solid var(--rule);border-radius:12px;overflow:hidden;display:block;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(14,61,40,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <div style="background:linear-gradient(135deg,#0A2B1A,#0E3D28);height:140px;position:relative;overflow:hidden;"><div style="position:absolute;top:-10px;left:-10px;width:100px;height:100px;border-radius:50%;background:rgba(39,201,122,0.15);"></div></div>
-        <div style="padding:1.5rem;">
-          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;"><span style="font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7C3AED;background:#F5F3FF;padding:0.25rem 0.6rem;border-radius:4px;">Leadership</span><span style="font-size:0.72rem;color:var(--ink-soft);">6 min read</span></div>
-          <h3 style="font-size:1rem;font-weight:700;color:var(--ink);line-height:1.3;letter-spacing:-0.015em;margin-bottom:0.6rem;">What a fractional CTO actually does — and when you need one</h3>
-          <p style="font-size:0.8rem;color:var(--ink-mid);line-height:1.65;">The fractional CTO role is often misunderstood. This is a clear-eyed look at what it covers, what it doesn't, and how to know if it's right for your business.</p>
-          <div style="font-size:0.72rem;color:var(--ink-soft);margin-top:1rem;">15 May 2025</div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card" data-cat="commercial" style="text-decoration:none;background:#fff;border:1px solid var(--rule);border-radius:12px;overflow:hidden;display:block;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(14,61,40,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <div style="background:linear-gradient(135deg,#1a1a2e,#2d3561);height:140px;position:relative;overflow:hidden;"><div style="position:absolute;bottom:-15px;right:-15px;width:110px;height:110px;border-radius:50%;background:rgba(59,130,246,0.2);"></div></div>
-        <div style="padding:1.5rem;">
-          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;"><span style="font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#1e40af;background:#EFF6FF;padding:0.25rem 0.6rem;border-radius:4px;">Commercial Tech</span><span style="font-size:0.72rem;color:var(--ink-soft);">5 min read</span></div>
-          <h3 style="font-size:1rem;font-weight:700;color:var(--ink);line-height:1.3;letter-spacing:-0.015em;margin-bottom:0.6rem;">Build vs buy: the question most technology teams are answering wrong</h3>
-          <p style="font-size:0.8rem;color:var(--ink-mid);line-height:1.65;">The build vs buy decision is rarely about technology. It's about commercial differentiation, margin, and what you actually want to be good at.</p>
-          <div style="font-size:0.72rem;color:var(--ink-soft);margin-top:1rem;">2 May 2025</div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card" data-cat="ai" style="text-decoration:none;background:#fff;border:1px solid var(--rule);border-radius:12px;overflow:hidden;display:block;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(14,61,40,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <div style="background:linear-gradient(135deg,#0E3D28,#27C97A);height:140px;position:relative;overflow:hidden;"></div>
-        <div style="padding:1.5rem;">
-          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;"><span style="font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green-mid);background:var(--green-pale);padding:0.25rem 0.6rem;border-radius:4px;">AI Strategy</span><span style="font-size:0.72rem;color:var(--ink-soft);">7 min read</span></div>
-          <h3 style="font-size:1rem;font-weight:700;color:var(--ink);line-height:1.3;letter-spacing:-0.015em;margin-bottom:0.6rem;">The ROI of AI: how to build a business case that survives board scrutiny</h3>
-          <p style="font-size:0.8rem;color:var(--ink-mid);line-height:1.65;">AI investment cases fail at board level because they're built around technology metrics. Here's how to build one that speaks the language of the CFO.</p>
-          <div style="font-size:0.72rem;color:var(--ink-soft);margin-top:1rem;">18 Apr 2025</div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card" data-cat="leadership" style="text-decoration:none;background:#fff;border:1px solid var(--rule);border-radius:12px;overflow:hidden;display:block;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(14,61,40,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <div style="background:linear-gradient(135deg,#1f1f1f,#4a4845);height:140px;position:relative;overflow:hidden;"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.06);"></div></div>
-        <div style="padding:1.5rem;">
-          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;"><span style="font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7C3AED;background:#F5F3FF;padding:0.25rem 0.6rem;border-radius:4px;">Leadership</span><span style="font-size:0.72rem;color:var(--ink-soft);">5 min read</span></div>
-          <h3 style="font-size:1rem;font-weight:700;color:var(--ink);line-height:1.3;letter-spacing:-0.015em;margin-bottom:0.6rem;">Technology leadership for PE: what portfolio companies actually need post-acquisition</h3>
-          <p style="font-size:0.8rem;color:var(--ink-mid);line-height:1.65;">Post-acquisition technology integration fails more often than not. What PE-backed businesses need isn't a roadmap — it's a decision-maker in the room.</p>
-          <div style="font-size:0.72rem;color:var(--ink-soft);margin-top:1rem;">5 Apr 2025</div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card" data-cat="commercial" style="text-decoration:none;background:#fff;border:1px solid var(--rule);border-radius:12px;overflow:hidden;display:block;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(14,61,40,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <div style="background:linear-gradient(135deg,#14532d,#166534);height:140px;position:relative;overflow:hidden;"></div>
-        <div style="padding:1.5rem;">
-          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;"><span style="font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#1e40af;background:#EFF6FF;padding:0.25rem 0.6rem;border-radius:4px;">Commercial Tech</span><span style="font-size:0.72rem;color:var(--ink-soft);">6 min read</span></div>
-          <h3 style="font-size:1rem;font-weight:700;color:var(--ink);line-height:1.3;letter-spacing:-0.015em;margin-bottom:0.6rem;">Vendor rationalisation: how to cut your technology spend without cutting capability</h3>
-          <p style="font-size:0.8rem;color:var(--ink-mid);line-height:1.65;">Most mid-market businesses are sitting on 20–40% of avoidable technology spend. Here's how to find it, cut it, and reinvest it where it matters.</p>
-          <div style="font-size:0.72rem;color:var(--ink-soft);margin-top:1rem;">21 Mar 2025</div>
-        </div>
-      </a>
-
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="mobile-menu__header">
+      <span class="mobile-menu__logo"><img src="images/pevaris-logo.svg" alt="Pevaris" class="mobile-menu__logo-img"></span>
+      <button class="mobile-menu__close" aria-label="Close menu">×</button>
+    </div>
+    <div class="mobile-menu__links">
+      <a href="index.html" class="mobile-menu__link">Home</a>
+      <a href="about.html" class="mobile-menu__link">About</a>
+      <a href="services.html" class="mobile-menu__link">Services</a>
+      <a href="fractional-leadership.html" class="mobile-menu__link mobile-menu__link--sub">Fractional Leadership</a>
+      <a href="ai-strategy.html" class="mobile-menu__link mobile-menu__link--sub">AI Strategy & Delivery</a>
+      <a href="technology-delivery.html" class="mobile-menu__link mobile-menu__link--sub">Technology Delivery</a>
+      <a href="executive-ai-training.html" class="mobile-menu__link mobile-menu__link--sub">Executive AI Training</a>
+      <a href="approach.html" class="mobile-menu__link">Approach</a>
+      <a href="blog.html" class="mobile-menu__link">Blog</a>
+    </div>
+    <div class="mobile-menu__cta">
+      <a href="mailto:hello@pevaris.com" class="btn-accent">Book a call →</a>
     </div>
   </div>
-</section>
 
-<!-- CTA -->
-<section class="cta-section">
-  <div class="cta-glow"></div>
-  <div class="cta-inner">
-    <h2 class="cta-headline reveal">Want to talk through what you've read?</h2>
-    <a href="mailto:hello@pevaris.com" class="btn-light reveal reveal-delay-1">Book a discovery call →</a>
-  </div>
-</section>
+  <main id="mainContent">
+    <!-- Hero Section -->
+    <section class="section-dark hero hero--centered">
+      <div class="container">
+        <div class="hero__content">
+          <h1 class="hero__title animate-fade-up">Perspectives on technology,<br>AI and leadership.</h1>
+          <p class="hero__subtitle animate-fade-up-delay-1">Practical observations from the field  - not predictions from the sideline.</p>
+        </div>
+      </div>
+    </section>
 
-<!-- Blog-specific filter script -->
-<script>
-function filterPosts(cat) {
-  const cards = document.querySelectorAll('.post-card');
-  cards.forEach(c => { c.style.display = (cat === 'all' || c.dataset.cat === cat) ? 'block' : 'none'; });
-  document.querySelectorAll('[id^="filter-"]').forEach(b => {
-    b.style.background = 'transparent'; b.style.color = 'var(--ink-mid)'; b.style.borderColor = 'var(--rule)';
-  });
-  const active = document.getElementById('filter-' + cat);
-  if (active) { active.style.background = 'var(--green-deep)'; active.style.color = '#fff'; active.style.borderColor = 'var(--green-mid)'; }
-}
-</script>
+    <!-- Blog Grid -->
+    <section class="section-white">
+      <div class="container">
+        <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+          <!-- Blog post page to be built when first post is published -->
+          <div class="card">
+            <div class="blog-card__meta">
+              <span class="blog-card__date">Coming soon</span>
+              <span class="pill pill--small">AI Strategy</span>
+            </div>
+            <h3 class="blog-card__title">Why most AI projects stall before they deliver value</h3>
+            <p class="blog-card__excerpt">The problem isn't the technology. It's the gap between the strategy and the commercial reality of the business.</p>
+            <span class="blog-card__link">Read more →</span>
+          </div>
 
-<footer>
-  <a href="index.html" class="footer-logo">PEVARIS</a>
-  <ul class="footer-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="ai-strategy.html">AI Strategy</a></li>
-    <li><a href="approach.html">Approach</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
-  </ul>
-  <span class="footer-copy">&copy; 2025 Pevaris. All rights reserved.</span>
-</footer>
+          <!-- Blog post page to be built when first post is published -->
+          <div class="card">
+            <div class="blog-card__meta">
+              <span class="blog-card__date">Coming soon</span>
+              <span class="pill pill--small">Leadership</span>
+            </div>
+            <h3 class="blog-card__title">What Premier League football taught me about technology resilience</h3>
+            <p class="blog-card__excerpt">When 30,000 people are in the stadium, every system that fails is visible. That shapes how you think about risk.</p>
+            <span class="blog-card__link">Read more →</span>
+          </div>
 
-<script src="main.js"></script>
+          <!-- Blog post page to be built when first post is published -->
+          <div class="card">
+            <div class="blog-card__meta">
+              <span class="blog-card__date">Coming soon</span>
+              <span class="pill pill--small">Delivery</span>
+            </div>
+            <h3 class="blog-card__title">Why 80% built is not 80% done</h3>
+            <p class="blog-card__excerpt">The last 20% of any software project is where the real complexity lives. Here's what that actually looks like.</p>
+            <span class="blog-card__link">Read more →</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- CTA Banner -->
+    <section class="section-light">
+      <div class="container">
+        <div class="cta-banner">
+          <h2 class="cta-banner__title">Want to discuss a challenge?</h2>
+          <p class="cta-banner__subtitle" style="color: var(--color-text-muted);">The first conversation is always free and without obligation.</p>
+          <div class="cta-banner__buttons">
+            <a href="mailto:hello@pevaris.com" class="btn-primary">Book a discovery call →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo"><img src="images/pevaris-logo-reversed.svg" alt="Pevaris" class="footer__logo-img"></div>
+          <p class="footer__tagline">Technology and AI leadership for businesses that need it done.</p>
+          <div class="footer__social">
+            <a href="https://linkedin.com/in/joedarkins" class="footer__social-link" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__column">
+          <h4>Services</h4>
+          <div class="footer__links">
+            <a href="fractional-leadership.html" class="footer__link">Fractional Leadership</a>
+            <a href="ai-strategy.html" class="footer__link">AI Strategy & Delivery</a>
+            <a href="technology-delivery.html" class="footer__link">Technology Delivery</a>
+            <a href="executive-ai-training.html" class="footer__link">Executive AI Training</a>
+          </div>
+        </div>
+
+        <div class="footer__column">
+          <h4>Company</h4>
+          <div class="footer__links">
+            <a href="about.html" class="footer__link">About</a>
+            <a href="approach.html" class="footer__link">Approach</a>
+            <a href="blog.html" class="footer__link">Blog</a>
+            <a href="mailto:hello@pevaris.com" class="footer__link">Book a call</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© 2026 Pevaris. All rights reserved.</span>
+        <a href="mailto:hello@pevaris.com">hello@pevaris.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
 </body>
 </html>

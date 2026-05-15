@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Pevaris">
+  <title>Pevaris</title>
+  
+  <circle cx="16" cy="16" r="16" fill="#E6F2EF"></circle>
+  <circle cx="16" cy="16" r="13" fill="#5FA896"></circle>
+  <circle cx="16" cy="16" r="9" fill="#A8CDC4"></circle>
+  <circle cx="16" cy="16" r="5.5" fill="#143C2A"></circle>
+</svg>

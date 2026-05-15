@@ -1,162 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Strategy — Pevaris</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Joe Darkins, Pevaris">
+  <title>AI Strategy & Delivery  - Pevaris</title>
+  <meta name="description" content="AI strategy, implementation and executive training for UK businesses. From readiness to production  - governance built in from day one. Delivered by Pevaris.">
+  <link rel="canonical" href="https://www.pevaris.com/ai-strategy.html">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Pevaris">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI Strategy & Delivery  - Pevaris">
+  <meta property="og:description" content="AI strategy, implementation and executive training for UK businesses. From readiness to production  - governance built in from day one. Delivered by Pevaris.">
+  <meta property="og:url" content="https://www.pevaris.com/ai-strategy.html">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="images/pevaris-favicon.svg">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div id="cursor-glow"></div>
-<nav id="main-nav">
-  <a href="index.html" class="nav-logo">PEVARIS</a>
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="ai-strategy.html" class="active">AI Strategy</a></li>
-    <li><a href="approach.html">Approach</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Book a call</a></li>
-  </ul>
-</nav>
+  <!-- Navigation -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo"><img src="images/pevaris-logo.svg" alt="Pevaris" class="nav__logo-img"></a>
 
-<div style="background:linear-gradient(160deg,#F5F3EF 55%,#E8F5EE 100%); position:relative; overflow:hidden;">
-  <div class="particle" style="width:5px;height:5px;background:rgba(39,201,122,0.45);top:22%;left:6%;animation:floatDrift 8s ease-in-out infinite;"></div>
-  <div class="particle" style="width:4px;height:4px;background:rgba(39,201,122,0.3);top:55%;left:88%;animation:floatDrift 10s ease-in-out infinite 2s;"></div>
-  <div class="page-hero">
-    <div class="page-hero-label">AI Strategy</div>
-    <h1>AI that actually <span class="gradient-text">works.</span></h1>
-    <p>Most AI projects fail not because of the technology — but because the strategy was disconnected from the commercial reality. I start with the business problem, not the model.</p>
-  </div>
-</div>
-
-<!-- THE PROBLEM -->
-<section style="background:#fff;">
-  <div class="section-wrap">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start;" class="reveal">
-      <div>
-        <div class="section-label">The reality</div>
-        <h2 class="section-title">Why most AI programmes stall.</h2>
+      <div class="nav__links">
+        <a href="about.html" class="nav__link">About</a>
+        <div class="nav__item--services">
+          <a href="services.html" class="nav__link nav__link--services">Services</a>
+          <div class="nav__dropdown">
+            <a href="fractional-leadership.html" class="nav__dropdown-item">
+              <div class="nav__dropdown-title">Fractional Leadership</div>
+              <div class="nav__dropdown-desc">Senior CTO, CPO or CAIO</div>
+            </a>
+            <a href="ai-strategy.html" class="nav__dropdown-item">
+              <div class="nav__dropdown-title">AI Strategy & Delivery</div>
+              <div class="nav__dropdown-desc">From readiness to production</div>
+            </a>
+            <a href="technology-delivery.html" class="nav__dropdown-item">
+              <div class="nav__dropdown-title">Technology Delivery</div>
+              <div class="nav__dropdown-desc">The last 20%, done properly</div>
+            </a>
+            <div class="nav__dropdown-divider"></div>
+            <a href="executive-ai-training.html" class="nav__dropdown-item">
+              <div class="nav__dropdown-title">Executive AI Training</div>
+              <div class="nav__dropdown-desc">Workshops for boards and leadership</div>
+            </a>
+          </div>
+        </div>
+        <a href="approach.html" class="nav__link">Approach</a>
+        <a href="blog.html" class="nav__link">Blog</a>
       </div>
-      <div style="padding-top:0.5rem;">
-        <div style="display:flex; flex-direction:column; gap:1.25rem;">
-          <div style="display:flex; gap:1.25rem; align-items:flex-start; padding:1.5rem; border:1px solid var(--rule); border-radius:10px;">
-            <div style="font-family:var(--ff-display);font-size:1.75rem;font-weight:700;color:var(--rule);line-height:1;flex-shrink:0;width:2.5rem;">01</div>
-            <div><div style="font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:0.35rem;">Strategy built around the tech, not the business</div><p style="font-size:0.83rem;color:var(--ink-mid);line-height:1.7;">Teams get excited about models and tools before anyone has defined what commercial problem they're solving. The result is impressive demos that never reach production.</p></div>
+
+      <a href="mailto:hello@pevaris.com" class="btn-primary nav__cta">Book a call →</a>
+
+      <button class="nav__toggle" aria-label="Toggle menu">
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="mobile-menu__header">
+      <span class="mobile-menu__logo"><img src="images/pevaris-logo.svg" alt="Pevaris" class="mobile-menu__logo-img"></span>
+      <button class="mobile-menu__close" aria-label="Close menu">×</button>
+    </div>
+    <div class="mobile-menu__links">
+      <a href="index.html" class="mobile-menu__link">Home</a>
+      <a href="about.html" class="mobile-menu__link">About</a>
+      <a href="services.html" class="mobile-menu__link">Services</a>
+      <a href="fractional-leadership.html" class="mobile-menu__link mobile-menu__link--sub">Fractional Leadership</a>
+      <a href="ai-strategy.html" class="mobile-menu__link mobile-menu__link--sub">AI Strategy & Delivery</a>
+      <a href="technology-delivery.html" class="mobile-menu__link mobile-menu__link--sub">Technology Delivery</a>
+      <a href="executive-ai-training.html" class="mobile-menu__link mobile-menu__link--sub">Executive AI Training</a>
+      <a href="approach.html" class="mobile-menu__link">Approach</a>
+      <a href="blog.html" class="mobile-menu__link">Blog</a>
+    </div>
+    <div class="mobile-menu__cta">
+      <a href="mailto:hello@pevaris.com" class="btn-accent">Book a call →</a>
+    </div>
+  </div>
+
+  <main id="mainContent">
+    <!-- Hero Section -->
+    <section class="section-dark hero">
+      <div class="container">
+        <div class="hero__grid">
+          <div class="hero__content">
+            <h1 class="hero__title animate-fade-up">AI that works.<br>Not AI that stalls.</h1>
+            <p class="hero__subtitle animate-fade-up-delay-1">Most AI projects die at proof-of-concept. We start with the business problem and get it live in production.</p>
           </div>
-          <div style="display:flex; gap:1.25rem; align-items:flex-start; padding:1.5rem; border:1px solid var(--rule); border-radius:10px;">
-            <div style="font-family:var(--ff-display);font-size:1.75rem;font-weight:700;color:var(--rule);line-height:1;flex-shrink:0;width:2.5rem;">02</div>
-            <div><div style="font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:0.35rem;">Governance bolted on as an afterthought</div><p style="font-size:0.83rem;color:var(--ink-mid);line-height:1.7;">Compliance, data privacy, and risk management get added late — slowing deployment, creating legal exposure, and undermining board confidence.</p></div>
-          </div>
-          <div style="display:flex; gap:1.25rem; align-items:flex-start; padding:1.5rem; border:1px solid var(--rule); border-radius:10px;">
-            <div style="font-family:var(--ff-display);font-size:1.75rem;font-weight:700;color:var(--rule);line-height:1;flex-shrink:0;width:2.5rem;">03</div>
-            <div><div style="font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:0.35rem;">No clear definition of success</div><p style="font-size:0.83rem;color:var(--ink-mid);line-height:1.7;">Without commercial KPIs defined upfront, AI programmes get measured in model accuracy instead of revenue impact — and struggle to justify continued investment.</p></div>
+          <div class="hero__image animate-fade-up-delay-2">
+            <img src="images/ai-strategy-hero.svg" alt="AI and data visualization" class="split-img" style="aspect-ratio: auto;">
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- Not a Strategy Paper -->
+    <section class="section-white">
+      <div class="container">
+        <div class="split">
+          <div class="split__content">
+            <h2 class="split__title">Not a strategy paper.<br>Not a vendor recommendation.</h2>
+          </div>
+          <div class="split__content">
+            <p class="split__body">Most AI consultants stop at the strategy. Pevaris builds and deploys  - agents in production, pipelines running, commercial outcomes tracked from day one.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Five Service Areas -->
+    <section class="section-light">
+      <div class="container">
+        <div class="section-header section-header--left">
+          <h2 class="section-header__title">How it works</h2>
+        </div>
+
+        <div class="cards-grid">
+          <div class="card">
+            <h3 class="card__title">Readiness</h3>
+            <p class="card__body">Where can AI create value for your business? Gap analysis before any vendor conversation.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">Governance</h3>
+            <p class="card__body">Risk frameworks and compliance built in from day one. Not retrofitted later.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">Production</h3>
+            <p class="card__body">Agents, pipelines and integrations  - deployed and working. Not stuck in proof-of-concept.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">Measurement</h3>
+            <p class="card__body">KPIs tied to revenue. Not activity metrics. Commercial outcomes, tracked throughout.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- In Practice -->
+    <section class="section-white">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-header__title">In practice.</h2>
+        </div>
+
+        <div class="cards-grid cards-grid--2col">
+          <div class="card">
+            <h3 class="card__title">Premier League Football</h3>
+            <p class="card__body">AI agents deployed in production across commercial, legal and operational departments.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">Fortune 500</h3>
+            <p class="card__body">AI data products built for clients generating $4.6m in fees per year.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof Statement -->
+    <section class="section-dark">
+      <div class="container">
+        <div class="cta-banner">
+          <blockquote class="blockquote" style="border-color: var(--color-accent);">
+            <p class="blockquote__text" style="color: var(--color-white);">"AI agents deployed in production across commercial, legal and operational departments at a Premier League football club  - driving revenue, reporting and cost savings."</p>
+            <p class="blockquote__attribution">Joe Darkins  - from a Premier League CTO engagement</p>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Executive AI Training Teaser -->
+    <section class="section-white">
+      <div class="container">
+        <div class="split">
+          <div class="split__content">
+            <h2 class="split__title">Want to bring your board up to speed on AI?</h2>
+            <p class="split__body">We run half-day and full-day workshops for boards and leadership teams.</p>
+            <a href="executive-ai-training.html" class="btn-primary mt-6">Find out more →</a>
+          </div>
+          <div class="split__image">
+            <img src="images/ai-training.svg" alt="Leadership team workshop" class="split-img" style="aspect-ratio: auto;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="section-dark">
+      <div class="container">
+        <div class="cta-banner">
+          <h2 class="cta-banner__title">Let's talk.</h2>
+          <div class="cta-banner__buttons">
+            <a href="mailto:hello@pevaris.com" class="btn-accent">Book a call →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo"><img src="images/pevaris-logo-reversed.svg" alt="Pevaris" class="footer__logo-img"></div>
+          <p class="footer__tagline">Technology and AI leadership for businesses that need it done.</p>
+          <div class="footer__social">
+            <a href="https://linkedin.com/in/joedarkins" class="footer__social-link" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__column">
+          <h4>Services</h4>
+          <div class="footer__links">
+            <a href="fractional-leadership.html" class="footer__link">Fractional Leadership</a>
+            <a href="ai-strategy.html" class="footer__link">AI Strategy & Delivery</a>
+            <a href="technology-delivery.html" class="footer__link">Technology Delivery</a>
+            <a href="executive-ai-training.html" class="footer__link">Executive AI Training</a>
+          </div>
+        </div>
+
+        <div class="footer__column">
+          <h4>Company</h4>
+          <div class="footer__links">
+            <a href="about.html" class="footer__link">About</a>
+            <a href="approach.html" class="footer__link">Approach</a>
+            <a href="blog.html" class="footer__link">Blog</a>
+            <a href="mailto:hello@pevaris.com" class="footer__link">Book a call</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© 2026 Pevaris. All rights reserved.</span>
+        <a href="mailto:hello@pevaris.com">hello@pevaris.com</a>
+      </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- THE APPROACH -->
-<section style="background:var(--green-deep); position:relative; overflow:hidden;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 85% 50%, rgba(39,201,122,0.1) 0%, transparent 60%);pointer-events:none;"></div>
-  <div class="section-wrap" style="position:relative;z-index:1;">
-    <div class="section-label" style="color:var(--green-bright);">My approach</div>
-    <h2 class="section-title" style="color:#fff; margin-bottom:3rem;" class="reveal">Commercial-first AI strategy.</h2>
-    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(255,255,255,0.08); border-radius:12px; overflow:hidden;" class="reveal">
-      <div style="background:rgba(255,255,255,0.04); padding:2rem; transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
-        <div style="width:40px;height:40px;background:rgba(39,201,122,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#27C97A" stroke-width="1.5"/><path d="M7 10 L9 12 L13 8" stroke="#27C97A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div style="font-size:0.88rem;font-weight:700;color:#fff;margin-bottom:0.5rem;">Commercial diagnosis</div>
-        <p style="font-size:0.78rem;color:rgba(255,255,255,0.55);line-height:1.65;">Identify where AI creates measurable commercial value — cost reduction, revenue growth, or competitive differentiation.</p>
-      </div>
-      <div style="background:rgba(255,255,255,0.04); padding:2rem; transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
-        <div style="width:40px;height:40px;background:rgba(39,201,122,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="7" height="7" rx="1.5" fill="#27C97A" opacity="0.7"/><rect x="11" y="2" width="7" height="7" rx="1.5" fill="#27C97A" opacity="0.4"/><rect x="2" y="11" width="7" height="7" rx="1.5" fill="#27C97A" opacity="0.4"/><rect x="11" y="11" width="7" height="7" rx="1.5" fill="#27C97A" opacity="0.7"/></svg></div>
-        <div style="font-size:0.88rem;font-weight:700;color:#fff;margin-bottom:0.5rem;">Readiness &amp; data audit</div>
-        <p style="font-size:0.78rem;color:rgba(255,255,255,0.55);line-height:1.65;">Assess your data infrastructure, team capability, and organisational readiness — so the strategy is grounded in reality.</p>
-      </div>
-      <div style="background:rgba(255,255,255,0.04); padding:2rem; transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
-        <div style="width:40px;height:40px;background:rgba(39,201,122,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2 L18 6 L18 14 L10 18 L2 14 L2 6 Z" stroke="#27C97A" stroke-width="1.5" fill="none"/><circle cx="10" cy="10" r="3" fill="#27C97A" opacity="0.7"/></svg></div>
-        <div style="font-size:0.88rem;font-weight:700;color:#fff;margin-bottom:0.5rem;">Governance framework</div>
-        <p style="font-size:0.78rem;color:rgba(255,255,255,0.55);line-height:1.65;">Compliance, risk, and responsible AI policies designed for your sector — built in from the start, not retrofitted.</p>
-      </div>
-      <div style="background:rgba(255,255,255,0.04); padding:2rem; transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
-        <div style="width:40px;height:40px;background:rgba(39,201,122,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 15 L6 9 L9 12 L12 6 L15 8 L18 4" stroke="#27C97A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="4" r="2" fill="#27C97A"/></svg></div>
-        <div style="font-size:0.88rem;font-weight:700;color:#fff;margin-bottom:0.5rem;">Production &amp; measurement</div>
-        <p style="font-size:0.78rem;color:rgba(255,255,255,0.55);line-height:1.65;">Deployment with the delivery capability to match — and KPIs tied to revenue, not model performance metrics.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- USE CASES -->
-<section style="background:var(--bg);">
-  <div class="section-wrap">
-    <div class="section-label reveal">Where AI creates value</div>
-    <h2 class="section-title reveal" style="margin-bottom:3rem;">Common use cases across sectors.</h2>
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;">
-      <div class="reveal reveal-delay-1" style="background:#fff; border-radius:12px; padding:2rem; border:1px solid var(--rule); transition:transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(14,61,40,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1rem;">Automation</div>
-        <div style="font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:0.7rem;letter-spacing:-0.015em;">Intelligent process automation</div>
-        <p style="font-size:0.83rem;color:var(--ink-mid);line-height:1.7;">Eliminating manual, high-volume processes that drain resource without adding commercial value — from document processing to operational workflows.</p>
-      </div>
-      <div class="reveal reveal-delay-2" style="background:#fff; border-radius:12px; padding:2rem; border:1px solid var(--rule); transition:transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(14,61,40,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1rem;">Customer</div>
-        <div style="font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:0.7rem;letter-spacing:-0.015em;">Revenue intelligence</div>
-        <p style="font-size:0.83rem;color:var(--ink-mid);line-height:1.7;">Using AI to identify expansion revenue, churn risk, and upsell opportunity across your customer base — with commercial interventions that actually work.</p>
-      </div>
-      <div class="reveal reveal-delay-3" style="background:#fff; border-radius:12px; padding:2rem; border:1px solid var(--rule); transition:transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(14,61,40,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1rem;">Operations</div>
-        <div style="font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:0.7rem;letter-spacing:-0.015em;">Decision augmentation</div>
-        <p style="font-size:0.83rem;color:var(--ink-mid);line-height:1.7;">Giving your leadership and operational teams better, faster information at the point of decision — reducing cost and improving outcomes simultaneously.</p>
-      </div>
-      <div class="reveal reveal-delay-1" style="background:#fff; border-radius:12px; padding:2rem; border:1px solid var(--rule); transition:transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(14,61,40,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1rem;">Product</div>
-        <div style="font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:0.7rem;letter-spacing:-0.015em;">AI-native product features</div>
-        <p style="font-size:0.83rem;color:var(--ink-mid);line-height:1.7;">Embedding AI capabilities into your product that create genuine switching costs and differentiation — not features added for the press release.</p>
-      </div>
-      <div class="reveal reveal-delay-2" style="background:#fff; border-radius:12px; padding:2rem; border:1px solid var(--rule); transition:transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(14,61,40,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1rem;">Compliance</div>
-        <div style="font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:0.7rem;letter-spacing:-0.015em;">Regulatory AI deployment</div>
-        <p style="font-size:0.83rem;color:var(--ink-mid);line-height:1.7;">Deploying AI in regulated industries — financial services, healthcare, legal — where governance and auditability are non-negotiable from day one.</p>
-      </div>
-      <div class="reveal reveal-delay-3" style="background:var(--green-pale); border-radius:12px; padding:2rem; border:1px solid rgba(26,102,68,0.15); display:flex; flex-direction:column; justify-content:space-between; min-height:200px;">
-        <div style="font-size:1.1rem;font-weight:700;color:var(--ink);letter-spacing:-0.015em;">Not sure where to start?</div>
-        <p style="font-size:0.83rem;color:var(--ink-mid);line-height:1.7;margin-top:0.75rem;">A discovery session will map your commercial priorities against AI opportunity in 90 minutes.</p>
-        <a href="index.html#contact" class="btn-primary" style="margin-top:1.5rem; align-self:flex-start;">Book a session →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section" id="contact">
-  <div class="cta-glow"></div>
-  <div class="cta-inner">
-    <h2 class="cta-headline reveal">Ready to build an AI strategy that <em>actually moves the needle?</em></h2>
-    <a href="mailto:hello@pevaris.com" class="btn-light reveal reveal-delay-1">Book a discovery call →</a>
-  </div>
-</section>
-<footer>
-  <a href="index.html" class="footer-logo">PEVARIS</a>
-  <ul class="footer-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="ai-strategy.html">AI Strategy</a></li>
-    <li><a href="approach.html">Approach</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
-  </ul>
-  <span class="footer-copy">&copy; 2025 Pevaris. All rights reserved.</span>
-</footer>
-
-<script src="main.js"></script>
-
+  <script src="nav.js"></script>
 </body>
 </html>
