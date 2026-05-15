@@ -845,7 +845,7 @@ p:last-child {
 .mobile-menu__link--sub {
   font-size: var(--text-lg);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffff !important;
   padding-left: var(--space-4);
 }
 
