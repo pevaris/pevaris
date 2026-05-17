@@ -74,8 +74,8 @@
       canvas.height = Math.max(1, Math.floor(H * dpr));
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       if (!mouse.active) {
-        mouse.x = mouse.smoothX = mouse.targetX = W * 0.62;
-        mouse.y = mouse.smoothY = mouse.targetY = H * 0.42;
+        mouse.x = mouse.smoothX = mouse.targetX = W * 0.22;
+        mouse.y = mouse.smoothY = mouse.targetY = H * 0.18;
       }
       seed();
     }
