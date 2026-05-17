@@ -1,0 +1,122 @@
+<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pevaris — Technology Delivery">
+  <title>Technology Delivery</title>
+  <defs>
+    <filter id="grain05L" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="17"></feTurbulence>
+      <feColorMatrix values="0 0 0 0 0.08  0 0 0 0 0.16  0 0 0 0 0.11  0 0 0 0.08 0"></feColorMatrix>
+      <feComposite in2="SourceGraphic" operator="in"></feComposite>
+    </filter>
+    <radialGradient id="vignette05L" cx="50%" cy="55%" r="75%">
+      <stop offset="55%" stop-color="#F2EBDB" stop-opacity="0"></stop>
+      <stop offset="100%" stop-color="#CFC6B0" stop-opacity="0.55"></stop>
+    </radialGradient>
+    <linearGradient id="goldFill05L" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#B9A563"></stop>
+      <stop offset="100%" stop-color="#D9C58A"></stop>
+    </linearGradient>
+    <radialGradient id="goldHalo05L" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E8D79A" stop-opacity="0.9"></stop>
+      <stop offset="55%" stop-color="#B9A563" stop-opacity="0.4"></stop>
+      <stop offset="100%" stop-color="#B9A563" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+
+  <rect width="600" height="450" fill="#F2EBDB"></rect>
+  <rect width="600" height="450" fill="#355834" opacity="0.08"></rect>
+
+  <g stroke="#355834" stroke-width="0.5" opacity="0.32">
+    <line x1="60" y1="30" x2="60" y2="420"></line><line x1="120" y1="30" x2="120" y2="420"></line>
+    <line x1="180" y1="30" x2="180" y2="420"></line><line x1="240" y1="30" x2="240" y2="420"></line>
+    <line x1="300" y1="30" x2="300" y2="420"></line><line x1="360" y1="30" x2="360" y2="420"></line>
+    <line x1="420" y1="30" x2="420" y2="420"></line><line x1="480" y1="30" x2="480" y2="420"></line>
+    <line x1="540" y1="30" x2="540" y2="420"></line>
+    <line x1="30" y1="60" x2="570" y2="60"></line><line x1="30" y1="120" x2="570" y2="120"></line>
+    <line x1="30" y1="180" x2="570" y2="180"></line><line x1="30" y1="240" x2="570" y2="240"></line>
+    <line x1="30" y1="300" x2="570" y2="300"></line><line x1="30" y1="360" x2="570" y2="360"></line>
+  </g>
+
+  <rect x="30" y="30" width="540" height="390" fill="none" stroke="#355834" stroke-width="0.75" opacity="0.55"></rect>
+
+  
+  <g font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="8" fill="#14281D" opacity="0.55" letter-spacing="0.5">
+    <text x="80" y="90">PROJECT</text>
+    <text x="200" y="90">PROGRESS</text>
+    <text x="500" y="90" text-anchor="end">STATUS</text>
+  </g>
+  <line x1="60" y1="100" x2="540" y2="100" stroke="#355834" stroke-width="0.5" opacity="0.55"></line>
+
+  
+  <line x1="490" y1="110" x2="490" y2="370" stroke="#14281D" stroke-width="0.6" opacity="0.45" stroke-dasharray="2 4"></line>
+  <text x="490" y="105" font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="7" fill="#14281D" opacity="0.55" text-anchor="middle">100%</text>
+
+  
+  
+  <g transform="translate(0,130)">
+    <text x="80" y="6" font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="9" fill="#14281D" opacity="0.85">PRJ-A · platform</text>
+    <rect x="190" y="-4" width="300" height="14" fill="none" stroke="#355834" stroke-width="0.6" opacity="0.7"></rect>
+    <rect x="190" y="-4" width="234" height="14" fill="#14281D" opacity="0.7"></rect>
+    <text x="540" y="6" font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="8" fill="#5A7B59" text-anchor="end" opacity="0.75" letter-spacing="0.5">STALLED · 78%</text>
+  </g>
+
+  
+  <g transform="translate(0,170)">
+    <text x="80" y="6" font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="9" fill="#14281D" opacity="0.85">PRJ-B · checkout</text>
+    <rect x="190" y="-4" width="300" height="14" fill="none" stroke="#355834" stroke-width="0.6" opacity="0.7"></rect>
+    <rect x="190" y="-4" width="192" height="14" fill="#14281D" opacity="0.7"></rect>
+    <text x="540" y="6" font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="8" fill="#5A7B59" text-anchor="end" opacity="0.75" letter-spacing="0.5">STALLED · 64%</text>
+  </g>
+
+  
+  <g transform="translate(0,210)">
+    <text x="80" y="6" font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="9" fill="#B9A563" font-weight="700">PRJ-C · ai pipeline</text>
+    <rect x="190" y="-7" width="320" height="20" fill="url(#goldHalo05L)" opacity="0.6"></rect>
+    <rect x="190" y="-4" width="300" height="14" fill="none" stroke="#355834" stroke-width="0.6" opacity="0.7"></rect>
+    
+    <rect x="190" y="-4" width="300" height="14" fill="url(#goldFill05L)"></rect>
+    
+    <polygon points="490,-6 506,3 490,12" fill="#B9A563"></polygon>
+    <text x="540" y="6" font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="8" fill="#B9A563" text-anchor="end" letter-spacing="0.5" font-weight="700">SHIPPED ✓</text>
+  </g>
+
+  
+  <g transform="translate(0,250)">
+    <text x="80" y="6" font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="9" fill="#14281D" opacity="0.85">PRJ-D · data layer</text>
+    <rect x="190" y="-4" width="300" height="14" fill="none" stroke="#355834" stroke-width="0.6" opacity="0.7"></rect>
+    <rect x="190" y="-4" width="243" height="14" fill="#14281D" opacity="0.7"></rect>
+    <text x="540" y="6" font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="8" fill="#5A7B59" text-anchor="end" opacity="0.75" letter-spacing="0.5">STALLED · 81%</text>
+  </g>
+
+  
+  <g transform="translate(0,290)">
+    <text x="80" y="6" font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="9" fill="#14281D" opacity="0.85">PRJ-E · portal</text>
+    <rect x="190" y="-4" width="300" height="14" fill="none" stroke="#355834" stroke-width="0.6" opacity="0.7"></rect>
+    <rect x="190" y="-4" width="126" height="14" fill="#355834" opacity="0.6"></rect>
+    <text x="540" y="6" font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="8" fill="#5A7B59" text-anchor="end" opacity="0.75" letter-spacing="0.5">PAUSED · 42%</text>
+  </g>
+
+  
+  <g transform="translate(0,330)">
+    <text x="80" y="6" font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="9" fill="#14281D" opacity="0.85">PRJ-F · billing</text>
+    <rect x="190" y="-4" width="300" height="14" fill="none" stroke="#355834" stroke-width="0.6" opacity="0.7"></rect>
+    <rect x="190" y="-4" width="228" height="14" fill="#14281D" opacity="0.7"></rect>
+    <text x="540" y="6" font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="8" fill="#5A7B59" text-anchor="end" opacity="0.75" letter-spacing="0.5">STALLED · 76%</text>
+  </g>
+
+  
+  <g stroke="#B9A563" stroke-width="0.7" fill="none" opacity="0.85">
+    <path d="M 550 200 L 558 200 L 558 226 L 550 226"></path>
+  </g>
+  <g font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="7" fill="#B9A563" letter-spacing="1">
+    <text x="558" y="218" transform="rotate(90 558 218)">FIXED SCOPE</text>
+  </g>
+
+  
+  <g fill="#14281D" font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="8" letter-spacing="0.5">
+    <text x="44" y="400" opacity="0.55">PEVARIS — DELIVERY · THE LAST 20%</text>
+    <text x="556" y="400" text-anchor="end" opacity="0.55">REV 04 · TO PRODUCTION</text>
+  </g>
+
+  <rect width="600" height="450" fill="url(#vignette05L)"></rect>
+  <rect width="600" height="450" filter="url(#grain05L)" opacity="0.4"></rect>
+  <rect x="0.5" y="0.5" width="599" height="449" fill="none" stroke="#CFC6B0" stroke-width="1"></rect>
+</svg>

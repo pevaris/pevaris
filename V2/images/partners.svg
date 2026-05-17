@@ -1,0 +1,123 @@
+<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pevaris — Delivery Partners">
+  <title>Delivery Partners</title>
+  <defs>
+    <filter id="grain07L" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="23"></feTurbulence>
+      <feColorMatrix values="0 0 0 0 0.08  0 0 0 0 0.16  0 0 0 0 0.11  0 0 0 0.08 0"></feColorMatrix>
+      <feComposite in2="SourceGraphic" operator="in"></feComposite>
+    </filter>
+    <radialGradient id="vignette07L" cx="50%" cy="55%" r="75%">
+      <stop offset="55%" stop-color="#F2EBDB" stop-opacity="0"></stop>
+      <stop offset="100%" stop-color="#CFC6B0" stop-opacity="0.55"></stop>
+    </radialGradient>
+    <radialGradient id="goldHalo07L" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E8D79A" stop-opacity="1"></stop>
+      <stop offset="55%" stop-color="#B9A563" stop-opacity="0.5"></stop>
+      <stop offset="100%" stop-color="#B9A563" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+
+  <rect width="600" height="450" fill="#F2EBDB"></rect>
+  <rect width="600" height="450" fill="#355834" opacity="0.08"></rect>
+
+  <g stroke="#355834" stroke-width="0.5" opacity="0.32">
+    <line x1="60" y1="30" x2="60" y2="420"></line><line x1="120" y1="30" x2="120" y2="420"></line>
+    <line x1="180" y1="30" x2="180" y2="420"></line><line x1="240" y1="30" x2="240" y2="420"></line>
+    <line x1="300" y1="30" x2="300" y2="420"></line><line x1="360" y1="30" x2="360" y2="420"></line>
+    <line x1="420" y1="30" x2="420" y2="420"></line><line x1="480" y1="30" x2="480" y2="420"></line>
+    <line x1="540" y1="30" x2="540" y2="420"></line>
+    <line x1="30" y1="60" x2="570" y2="60"></line><line x1="30" y1="120" x2="570" y2="120"></line>
+    <line x1="30" y1="180" x2="570" y2="180"></line><line x1="30" y1="240" x2="570" y2="240"></line>
+    <line x1="30" y1="300" x2="570" y2="300"></line><line x1="30" y1="360" x2="570" y2="360"></line>
+  </g>
+
+  <rect x="30" y="30" width="540" height="390" fill="none" stroke="#355834" stroke-width="0.75" opacity="0.55"></rect>
+
+  
+  <g fill="none" stroke="#355834" stroke-width="0.4" opacity="0.35">
+    <path d="M 60 130 Q 300 145, 540 130"></path>
+    <path d="M 60 200 Q 300 215, 540 200"></path>
+    <path d="M 60 280 Q 300 295, 540 280"></path>
+    <path d="M 60 350 Q 300 365, 540 350"></path>
+    <path d="M 160 60 Q 175 240, 160 410"></path>
+    <path d="M 300 60 Q 315 240, 300 410"></path>
+    <path d="M 440 60 Q 455 240, 440 410"></path>
+  </g>
+
+  
+  <g fill="#355834" opacity="0.45">
+    <circle cx="220" cy="125" r="1"></circle><circle cx="265" cy="138" r="1"></circle>
+    <circle cx="180" cy="160" r="1"></circle><circle cx="135" cy="190" r="1"></circle>
+    <circle cx="370" cy="115" r="1"></circle><circle cx="408" cy="142" r="1"></circle>
+    <circle cx="455" cy="172" r="1"></circle><circle cx="495" cy="195" r="1"></circle>
+    <circle cx="385" cy="225" r="1"></circle><circle cx="245" cy="245" r="1"></circle>
+    <circle cx="195" cy="290" r="1"></circle><circle cx="320" cy="305" r="1"></circle>
+    <circle cx="430" cy="290" r="1"></circle><circle cx="295" cy="350" r="1"></circle>
+  </g>
+
+  
+  <g fill="none" stroke="#B9A563" stroke-width="1" opacity="0.85">
+    <path d="M 210 170 Q 330 130, 460 170" stroke="#B9A563"></path>
+    <path d="M 210 170 Q 250 230, 280 290" stroke="#B9A563"></path>
+    <path d="M 210 170 Q 380 200, 440 300" stroke="#B9A563"></path>
+  </g>
+  
+  <g fill="none" stroke="#355834" stroke-width="0.4" opacity="0.4">
+    <path d="M 460 170 Q 380 240, 280 290"></path>
+    <path d="M 460 170 Q 460 235, 440 300"></path>
+    <path d="M 280 290 Q 360 295, 440 300"></path>
+  </g>
+
+  
+  
+  <g transform="translate(210,170)">
+    <circle r="26" fill="url(#goldHalo07L)"></circle>
+    <circle r="9" fill="#B9A563" stroke="#E8D79A" stroke-width="1.2"></circle>
+    <circle r="3" fill="#14281D"></circle>
+  </g>
+  
+  <g>
+    <g transform="translate(460,170)">
+      <circle r="6" fill="#F2EBDB" stroke="#14281D" stroke-width="1"></circle>
+      <circle r="2" fill="#14281D"></circle>
+    </g>
+    <g transform="translate(280,290)">
+      <circle r="6" fill="#F2EBDB" stroke="#14281D" stroke-width="1"></circle>
+      <circle r="2" fill="#14281D"></circle>
+    </g>
+    <g transform="translate(440,300)">
+      <circle r="6" fill="#F2EBDB" stroke="#14281D" stroke-width="1"></circle>
+      <circle r="2" fill="#14281D"></circle>
+    </g>
+  </g>
+
+  
+  <g font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="9" fill="#14281D" letter-spacing="1">
+    <text x="210" y="138" text-anchor="middle" fill="#B9A563" font-weight="700">LDN</text>
+    <text x="210" y="150" text-anchor="middle" fill="#B9A563" font-size="6.5" opacity="0.8" letter-spacing="0.5">UK · HUB</text>
+
+    <text x="460" y="148" text-anchor="middle">TLN</text>
+    <text x="460" y="160" text-anchor="middle" font-size="6.5" opacity="0.55" letter-spacing="0.5">EE · 6 eng</text>
+
+    <text x="280" y="268" text-anchor="middle">LIS</text>
+    <text x="280" y="280" text-anchor="middle" font-size="6.5" opacity="0.55" letter-spacing="0.5">PT · 5 eng</text>
+
+    <text x="440" y="278" text-anchor="middle">KRK</text>
+    <text x="440" y="290" text-anchor="middle" font-size="6.5" opacity="0.55" letter-spacing="0.5">PL · 8 eng</text>
+  </g>
+
+  
+  <g fill="#14281D" font-family="&#39;JetBrains Mono&#39;, ui-monospace, monospace" font-size="8" letter-spacing="0.5">
+    <text x="44" y="50" opacity="0.7">03 / DELIVERY NETWORK</text>
+    <text x="44" y="62" opacity="0.5">1 hub · 3 partners · 19 eng</text>
+    <text x="556" y="50" text-anchor="end" opacity="0.55">ACCOUNTABLE TO PLAN</text>
+    <text x="556" y="62" text-anchor="end" opacity="0.4">not to hours</text>
+
+    <text x="44" y="400" opacity="0.55">PEVARIS — TRUSTED PARTNERS · NEARSHORE</text>
+    <text x="556" y="400" text-anchor="end" opacity="0.55">REV 04 · SAME TIME ZONE ±2</text>
+  </g>
+
+  <rect width="600" height="450" fill="url(#vignette07L)"></rect>
+  <rect width="600" height="450" filter="url(#grain07L)" opacity="0.4"></rect>
+  <rect x="0.5" y="0.5" width="599" height="449" fill="none" stroke="#CFC6B0" stroke-width="1"></rect>
+</svg>
