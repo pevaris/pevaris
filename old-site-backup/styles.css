@@ -845,7 +845,7 @@ p:last-child {
 .mobile-menu__link--sub {
   font-size: var(--text-lg);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffff !important;
   padding-left: var(--space-4);
 }
 
@@ -1162,7 +1162,13 @@ p:last-child {
 }
 
 .split__content {
-  max-width: 520px;
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .split__content {
+    max-width: 520px;
+  }
 }
 
 .split__pill {
@@ -1228,59 +1234,6 @@ p:last-child {
 .stat__label {
   font-size: var(--text-sm);
   color: var(--color-text-faded);
-}
-
-/* ==========================================================================
-   17b. Customer Questions Grid
-   ========================================================================== */
-
-.questions-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-8) var(--space-12);
-  max-width: 900px;
-  margin: 0 auto var(--space-12);
-}
-
-.question {
-  font-family: var(--font-display);
-  font-size: var(--text-2xl);
-  font-weight: 300;
-  font-style: italic;
-  color: var(--color-white);
-  line-height: 1.4;
-  position: relative;
-  padding-left: var(--space-6);
-  border-left: 2px solid var(--color-accent);
-}
-
-.questions-answer {
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  font-weight: 600;
-  color: var(--color-white);
-  text-align: center;
-  margin: 0;
-  padding-top: var(--space-8);
-  border-top: 1px solid var(--color-border-dark);
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  .questions-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-    max-width: 400px;
-  }
-
-  .question {
-    font-size: var(--text-xl);
-  }
-
-  .questions-answer {
-    font-size: var(--text-lg);
-  }
 }
 
 /* ==========================================================================
@@ -1500,22 +1453,6 @@ p:last-child {
   background: var(--color-accent);
   border-radius: 4px;
   transform: rotate(45deg);
-}
-
-.credential-card__logo {
-  height: 40px;
-  width: auto;
-  max-width: 120px;
-  object-fit: contain;
-  margin-bottom: var(--space-4);
-  filter: grayscale(100%);
-  opacity: 0.7;
-  transition: filter 0.2s, opacity 0.2s;
-}
-
-.card:hover .credential-card__logo {
-  filter: grayscale(0%);
-  opacity: 1;
 }
 
 .credential-card__company {
