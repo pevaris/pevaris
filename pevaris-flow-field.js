@@ -141,7 +141,7 @@
 
         const size = 0.7 + mfp * 1.5;
         if (mfp > 0.45) {
-          ctx.fillStyle = 'rgba(' + state.highlight + ',' + (0.42 + mfp * 0.28) + ')';
+          ctx.fillStyle = 'rgba(' + state.highlight + ',' + (0.32 + mfp * 0.22) + ')';
         } else {
           ctx.fillStyle = 'rgba(' + state.particle + ',' + (0.4 + mfp * 0.25) + ')';
         }
